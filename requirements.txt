@@ -6,6 +6,8 @@ platformdirs==2.5.0
 six==1.16.0
 virtualenv==20.13.1
 virtualenv-clone==0.5.7
+whitenoise==6.0.0
+
 asgiref==3.2.10
 Django==3.1.1
 pytz==2020.1
