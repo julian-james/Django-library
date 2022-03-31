@@ -1,0 +1,18 @@
+{% extends "loan/base.html" %}
+
+{% block content %}
+    <h2>Here are all the books you can borrow!</h2>
+    <ul class="book-list">
+        {% for book in books %}
+            <li class="book-list-item">
+                <img src='https://covers.openlibrary.org/b/isbn/{{book.isbn}}-S.jpg'></img>
+                <div class="book-list-child left"><a href="{% url 'book-show' book.id %}">{{ book.title }}</a></div>
+                {% if book.borrower is None %}
+                    <div class="book-list-child green right-float">Available to borrow!</div>
+                {% else %}
+                    <div class="book-list-child red right-float">Currently unavailable</div>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

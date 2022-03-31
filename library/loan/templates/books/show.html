@@ -1,0 +1,28 @@
+{% extends "loan/base.html" %}
+
+{% block content %}
+    <h1>{{ book.title }}</h1>
+    <p>by {{ book.author }}</p>
+    <img src='https://covers.openlibrary.org/b/isbn/{{book.isbn}}-L.jpg'></img>
+    <div>
+        {% if book.borrower is None %}
+            <div class="book-list-child green">This book is available to borrow!</div>
+        {% else %}
+            <div class="book-list-child red">This book is currently unavailable.</div>
+        {% endif %}
+    </div>
+
+    {% if not book.borrower %}
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Borrow me!">
+        </form>
+    {% else %}
+        {% if book.borrower == user %}
+            <div>Thank you for Borrowing me!</div>
+        {% else %}
+            <div>I have been adopted by {{book.borrower.username}}!</div>
+        {% endif %}
+    {% endif %}
+{% endblock content %}
