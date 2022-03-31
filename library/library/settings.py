@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['django-library-online.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'loan.apps.LoanConfig',
     'users.apps.UsersConfig',
     'django.contrib.admin',
