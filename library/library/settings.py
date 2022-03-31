@@ -139,8 +139,8 @@ STATIC_HOST = os.environ.get("DJANGO_STATIC_HOST", "")
 
 STATIC_URL = '/library/loan/static/'
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_ROOT = BASE_DIR / "staticfiles"
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
