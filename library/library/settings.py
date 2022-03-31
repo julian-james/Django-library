@@ -136,10 +136,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_HOST = os.environ.get("DJANGO_STATIC_HOST", "")
+STATIC_HOST = "https://dd5goik2svgkp.cloudfront.net" if not DEBUG else ""
 
 # STATIC_URL = '/library/loan/static/'
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
+STATIC_URL = STATIC_HOST + "/static/"
 
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_ROOT = BASE_DIR / "staticfiles"
